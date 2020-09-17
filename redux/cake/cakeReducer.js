@@ -1,4 +1,5 @@
 import {BUY_CAKE, FETCH_SUCCESS, SET_USERS} from './cakeActionTypes';
+import produce from 'immer';
 
 const initialState = {
     number : 10,
@@ -6,27 +7,22 @@ const initialState = {
 }
 
 
-const cakeReducer = (state = initialState, action) => {
+const cakeReducer =  produce((draft , action) => {
     switch(action.type){
 
-        case BUY_CAKE : return {
-            ...state,
-            number : state.number - 1
+        case BUY_CAKE : {
+            draft.number -= 1;
         }
 
-        case FETCH_SUCCESS : return {
-            ...state,
-            users : action.payload
+        case FETCH_SUCCESS : {
+            draft.users = action.payload;
         }
 
-        case SET_USERS :  return {
-            ...state,
-            users : action.payload
+        case SET_USERS :  {
+            draft.users = action.payload;
         }
-
-        default : return state;
     }
-}
+}, initialState);
 
 
 export default cakeReducer;
