@@ -1,0 +1,4 @@
+//export const SET_USERS = "SET_USERS";
+export const FETCH_USERS = "FETCH_USERS";
+export const FETCH_USERS_SUCCESS =  "FETCH_USERS_SUCCESS";
+export const SET_ACTIVE_PAGE = "SET_ACTIVE_PAGE";
